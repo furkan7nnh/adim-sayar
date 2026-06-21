@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Adım Sayar" />
+  <title>Adım Sayar</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="panel">
+      <h1>Adım Sayar</h1>
+      <form id="step-form">
+        <label for="date">Tarih</label>
+        <input id="date" type="date" required />
+        <label for="steps">Adım Sayısı</label>
+        <input id="steps" type="number" min="0" step="1" placeholder="Örn. 8500" required />
+        <button type="submit">Kaydet</button>
+      </form>
+      <div class="motion-controls">
+        <button id="toggle-motion" class="motion-btn">Hareketi izle</button>
+        <button id="reset-today" class="secondary-btn">Bugünün kaydını sıfırla</button>
+      </div>
+      <div class="live-ring-wrap">
+        <div class="live-ring" id="live-ring">
+          <span id="live-step-count">0</span>
+        </div>
+      </div>
+      <div class="qr-panel">
+        <h3>Telefon için QR</h3>
+        <div id="qr-code" class="qr-code"></div>
+        <a id="qr-link" class="qr-link" href="http://192.168.1.101:8000">http://192.168.1.101:8000</a>
+      </div>
+      <p id="motion-status" class="motion-status">Otomatik adım takibi pasif.</p>
+    </section>
+
+    <section class="stats-grid">
+      <div class="card">
+        <p class="label">Bugün</p>
+        <h2 id="today-total">0</h2>
+      </div>
+      <div class="card">
+        <p class="label">Bu Ay</p>
+        <h2 id="month-total">0</h2>
+      </div>
+      <div class="card">
+        <p class="label">Bu Yıl</p>
+        <h2 id="year-total">0</h2>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-header">
+        <h3>Günlük Kayıtlar</h3>
+        <button id="clear-all" class="danger-btn">Tümünü Sil</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tarih</th>
+              <th>Adım</th>
+              <th>İşlem</th>
+            </tr>
+          </thead>
+          <tbody id="entry-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel summary-panel">
+      <div>
+        <h3>Aylık Özet</h3>
+        <ul id="monthly-summary"></ul>
+      </div>
+      <div>
+        <h3>Yıllık Özet</h3>
+        <ul id="yearly-summary"></ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>

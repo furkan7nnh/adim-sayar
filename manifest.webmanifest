@@ -1,0 +1,16 @@
+{
+  "name": "Adım Sayar",
+  "short_name": "Adım Sayar",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#2563eb",
+  "description": "Adım sayar ve günlük istatistikleri takip eden web uygulaması.",
+  "icons": [
+    {
+      "src": "./qr_code.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
