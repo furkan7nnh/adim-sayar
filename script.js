@@ -1,4 +1,5 @@
 const STORAGE_KEY = 'step-tracker-data';
+const PUBLIC_SITE_URL = 'https://furkan7nnh.github.io/adim-sayar/';
 const form = document.getElementById('step-form');
 const dateInput = document.getElementById('date');
 const stepsInput = document.getElementById('steps');
@@ -133,7 +134,7 @@ function updateLiveRing() {
 }
 
 function getShareableUrl() {
-  return window.location.href || window.location.origin + window.location.pathname;
+  return PUBLIC_SITE_URL;
 }
 
 function renderQrCode() {
