@@ -1,6 +1,6 @@
 {
-  "name": "Adım Sayar",
-  "short_name": "Adım Sayar",
+  "name": "Yeşil Eki",
+  "short_name": "Yeşil Eki",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f5f7fb",
